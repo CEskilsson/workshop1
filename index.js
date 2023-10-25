@@ -20,12 +20,14 @@ function gridInit() {
             cell.classList.add('cell');
             gridContainer.appendChild(cell);
             cell.addEventListener('click', () => {
-                   // checkWin()
-                if (board[i][j] === 0) {
-                    board[i][j] = currentPlayer
-                    cell.style.backgroundColor = currentPlayer
-                    currentPlayer = currentPlayer === 'red' ? 'blue' : 'red'
-                }
+            if (board[i][j] === 0) {
+                board[i][j] = currentPlayer
+                cell.style.backgroundColor = currentPlayer
+                currentPlayer = currentPlayer === 'red' ? 'blue' : 'red'
+            }
+            if (checkWin()) {
+             alert(currentPlayer + 'wins!')
+            }   
             });
         }
     }
@@ -34,10 +36,12 @@ function gridInit() {
 function checkWin () {
     let counter = 0
     for (let i = 0; i < 4; i++) {
-      for(let j = 0; j < 4; i++) {
-        console.log(board[i][j])
-        if (board[i][j].backgroundColor === currentPlayer) {
+      for(let j = 0; j < 4; j++) {
+        if (board[i][j] === currentPlayer) {
             counter++
+            if (counter === 4) {
+                return true
+            }
         } else {
             counter = 0
         }
@@ -45,4 +49,10 @@ function checkWin () {
       }
       
     }
+    return false
 }
+
+ 
+ 
+ 
+    
