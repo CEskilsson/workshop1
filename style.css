@@ -1,0 +1,19 @@
+.gridcontainer {
+    display: grid;
+    grid-template-columns: 1 1 1 1 ;
+    grid-template-rows: repeat(4 , 1fr );
+    
+
+    width: 200px;
+    height: 200px;
+
+}
+
+.cell {
+    background-color: green;
+    border-color: red;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
